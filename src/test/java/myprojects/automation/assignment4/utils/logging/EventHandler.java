@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class EventHandler implements WebDriverEventListener {
 
+
     @Override
     public void beforeNavigateTo(String url, WebDriver driver) {
         CustomReporter.log("Navigate to " + url);
@@ -74,15 +75,24 @@ public class EventHandler implements WebDriverEventListener {
     }
 
     @Override
-    public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-        String value = Arrays.stream(keysToSend).map(CharSequence::toString).collect(Collectors.joining());
-        CustomReporter.log(String.format("Change value of %s: %s\n", element.getTagName(), value));
+    public void beforeChangeValueOf(WebElement webElement, WebDriver webDriver) {
     }
 
     @Override
-    public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-        CustomReporter.log(String.format("Changed element " + element.getTagName()));
+    public void afterChangeValueOf(WebElement webElement, WebDriver webDriver) {
+
     }
+//For Selenium > 3.0
+//    @Override
+//    public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
+//        String value = Arrays.stream(keysToSend).map(CharSequence::toString).collect(Collectors.joining());
+//        CustomReporter.log(String.format("Change value of %s: %s\n", element.getTagName(), value));
+//    }
+//
+//    @Override
+//    public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
+//        CustomReporter.log(String.format("Changed element " + element.getTagName()));
+//    }
 
     @Override
     public void beforeScript(String script, WebDriver driver) {
