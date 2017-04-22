@@ -8,7 +8,7 @@
     </classes>
 </test>
     <test name="Create New Product [Opera]" >
-        <!--<test name="Create New Product [Opera]" >-->
+        <!--configure test to execute testing script using Opera browser-->
         <parameter name="browser" value="opera" />
         <classes>
             <class name="myprojects.automation.assignment4.tests.CreateProductTest"/>
