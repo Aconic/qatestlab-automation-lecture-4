@@ -29,6 +29,15 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.build.testOutputDirectory}/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>-Xmx1024m</argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>
+                                org.uncommons.reportng.HTMLReporter
+                            </value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>

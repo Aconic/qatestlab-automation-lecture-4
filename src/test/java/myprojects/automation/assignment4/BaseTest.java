@@ -5,9 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -33,6 +35,11 @@ public abstract class BaseTest {
                         "webdriver.gecko.driver",
                         getResource("/geckodriver.exe"));
                 return new FirefoxDriver();
+            case "opera":
+                System.setProperty(
+                        "webdriver.opera.driver",
+                        getResource("/operadriver.exe"));
+                return new OperaDriver();
             case "ie":
             case "internet explorer":
                 System.setProperty(
@@ -69,6 +76,7 @@ public abstract class BaseTest {
      *
      */
     @BeforeClass
+    @Parameters("browser")
     // TODO use parameters from pom.xml to pass required browser type
     public void setUp(String browser ) {
         driver = new EventFiringWebDriver(getDriver(browser));
@@ -87,7 +95,7 @@ public abstract class BaseTest {
     @AfterClass
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
+            driver.close();
         }
     }
 }
