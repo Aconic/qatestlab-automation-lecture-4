@@ -10,15 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-
 public class CreateProductTest extends BaseTest {
 
     private ProductData productData;
 
     @Test(dataProvider = "DataProviderData")
-    public void createNewProduct(String login, String password) throws InterruptedException {
+    public void createNewProduct(String login, String password){
         // TODO implement test for product creation
         actions.login(login, password);
         productData = ProductData.generate();
