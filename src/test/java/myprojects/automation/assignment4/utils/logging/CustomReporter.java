@@ -17,7 +17,7 @@ public class CustomReporter {
      * Logs action step that will be highlighted in test execution report.
      */
     public static void logAction(String message) {
-        Reporter.log(String.format("[%-12s] ACTION: %s", LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME), message));
+        Reporter.log(String.format("[%-12s] ACTION: %s", LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME), message ));
     }
 
     /**

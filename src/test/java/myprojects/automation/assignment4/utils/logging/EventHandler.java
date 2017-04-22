@@ -18,7 +18,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
-
+        CustomReporter.log("Navigated to " + url);
     }
 
     @Override
@@ -70,6 +70,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterClickOn(WebElement element, WebDriver driver) {
+        CustomReporter.log("Clicked element" + element.getTagName());
     }
 
     @Override
